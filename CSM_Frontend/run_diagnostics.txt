@@ -1,0 +1,1 @@
+Check config.json location wrapper.

@@ -1,0 +1,1 @@
+sed -i 's/public OffsetDateTime getUpdatedAt() { return updatedAt; }/public OffsetDateTime getCreatedAt() { return createdAt; }\n    public OffsetDateTime getUpdatedAt() { return updatedAt; }/g' ./src/main/java/com/sentinel/security/model/Asset.java

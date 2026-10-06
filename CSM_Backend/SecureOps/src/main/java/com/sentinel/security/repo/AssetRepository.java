@@ -1,0 +1,21 @@
+package com.sentinel.security.repo;
+
+import com.sentinel.security.model.Asset;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
+
+@Repository
+public interface AssetRepository extends JpaRepository<Asset, UUID> {
+
+    @Query("Select a From Asset a where a.ip like concat(:prefix,'%')")
+    List<Asset> findByIpPrefix(@Param("prefix") String prefix);
+
+    long countByStatus(Asset.HealthStatus status);
+
+    long countByType(Asset.AssetType type);
+}

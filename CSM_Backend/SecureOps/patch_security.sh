@@ -1,0 +1,1 @@
+sed -i 's|.requestMatchers("/auth/\*\*").permitAll()|.requestMatchers("/auth/\*\*").permitAll()\n                        .requestMatchers("/api/telemetry/\*\*").permitAll()|g' ./src/main/java/com/sentinel/security/config/SecurityConfig.java
